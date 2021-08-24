@@ -1,39 +1,37 @@
-package com.victor.dsdeliver.entities;
+package com.victor.dsdeliver.dto;
 
 import java.io.Serializable;
-import java.util.Objects;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.victor.dsdeliver.entities.Product;
 
-@Entity
-@Table(name = "tb_product")
-public class Product implements Serializable {
-
+public class ProductDto implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String name;
 	private double price;
 	private String description;
 	private String imageUri;
 	
-	public Product () {
+	public ProductDto() {
 		
 	}
 
-	public Product(long id, String name, double price, String description, String imageUri) {
-		super();
+	public ProductDto(long id, String name, double price, String description, String imageUri) {
 		this.id = id;
 		this.name = name;
 		this.price = price;
 		this.description = description;
 		this.imageUri = imageUri;
+	}
+	
+	public ProductDto(Product entity) {
+		id = entity.getId();
+		name = entity.getName();
+		price = entity.getPrice();
+		description = entity.getDescription();
+		imageUri = entity.getImageUri();
 	}
 
 	public long getId() {
@@ -75,23 +73,5 @@ public class Product implements Serializable {
 	public void setImageUri(String imageUri) {
 		this.imageUri = imageUri;
 	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Product other = (Product) obj;
-		return id == other.id;
-	}
-	
 	
 }
