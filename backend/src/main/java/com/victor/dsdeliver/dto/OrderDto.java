@@ -12,7 +12,7 @@ import com.victor.dsdeliver.entities.OrderStatus;
 public class OrderDto implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	private long id;
+	private Long id;
 	private String address;
 	private Double latitude;
 	private Double longitude;
@@ -25,7 +25,7 @@ public class OrderDto implements Serializable {
 		
 	}
 
-	public OrderDto(long id, String address, Double latitude, Double longitude, Instant moment, OrderStatus status) {
+	public OrderDto(Long id, String address, Double latitude, Double longitude, Instant moment, OrderStatus status) {
 		this.id = id;
 		this.address = address;
 		this.latitude = latitude;
@@ -44,7 +44,7 @@ public class OrderDto implements Serializable {
 		products = entity.getProducts().stream().map(x -> new ProductDto(x)).collect(Collectors.toList());
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
