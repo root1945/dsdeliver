@@ -31,6 +31,7 @@
 }
 
 .home-btn-order {
+  /*
   background-color: var(--primary-color);
   border-radius: 10px;
   height: 70px;
@@ -43,11 +44,48 @@
   font-size: 24px;
   letter-spacing: -0.015em;
   color: #FFF;
+  */
+  position: relative;
+  width: 300px;
+  height: 75px;
+  margin: 10px 0;
+  font-size: 24px;
+  border-radius: 10px;
+  background-color: var(--primary-color);
+  font-weight: bold;
+  color: #fff;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.home-btn-order span {
+  z-index: 1;
+  position: relative;
 }
 
 .home-btn-order:hover {
-  background-color: var(--primary-hover-color);
-  transform: scale(1.01);
+  background-color: #fff;
+  color: #fff;
+}
+
+.home-btn-order:before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: url('./btn-bg1.png');
+  background-size: cover;
+  transform-origin: left;
+  transition: 0.5s;
+}
+
+.home-btn-order:hover:before{
+  width: 100%;
 }
 
 .home-image svg {
